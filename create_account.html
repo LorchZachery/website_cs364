@@ -8,29 +8,30 @@
                 <ul>
                         <li><a href="index.html">INTRO</a></li>
                         <li><a href="submit_data.html">Add Workout</a></li>
-                        <li style="float:right"><a href="create_account.html">Create Account</a></li>
+                        <li><a href="progress_report.html">Progress Report</a></li>
+			<li style="float:right"><a href="create_account.html">Create Account</a></li>
                 </ul>
                 <h1>Create Account </h1>
 		<form class="p-3">
                 	<div class="form-group">
                         	<label for="firstName">FirstName </label>
-                        	<input type="text" class="form-conrol" id="firstName" placeholder="Couger">
+                        	<input type="text" class="form-conrol" id="firstName" placeholder="Couger" required>
                 	</div>
 			<div class="form-group">
 				<label for="lastName">Last Name</label>
-				<input type="text" class="form-control" id="firstName" placeholder="Boulder">
+				<input type="text" class="form-control" id="firstName" placeholder="Boulder" required>
 		       	</div>
 			<div class="form-group">
 				<label for="weight">Weight</label>
-				<input type="number" class="form-control" id="weight" placeholder="kilograms">
+				<input type="number" class="form-control" id="weight" placeholder="kilograms" required>
 			</div>
 			<div class="form-group">
 				<label for="height">Height</label>
-				<input type="number" class="form-control" id="height" placeholder="centimeters">
+				<input type="number" class="form-control" id="height" placeholder="centimeters" required>
 			</div>
 			<div class="form-group">
 				<label for="birthDate">Birthdate</label>
-				<input type="date" class="form-control" id="birthDate">
+				<input type="date" class="form-control" id="birthDate" required>
 			</div>
 			<button type="submit" class"btn btn-primary">Submit</button>
         	</form>

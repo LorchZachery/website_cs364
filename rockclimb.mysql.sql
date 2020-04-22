@@ -78,10 +78,10 @@ CREATE TABLE progress_report (
 
 
 INSERT INTO user (username, weight, height, birthdate, password) VALUES
-        ('caleb', '75', '160','1998-02-10', (SELECT SHA('1234'))),
-        ('cassie','60','140','1997-01-11', (SELECT SHA('password'))),
-        ('tom','70','165','1998-10-15', (SELECT SHA('test'))),
-        ('zachery','100','110','1980-10-10', (SELECT SHA('4567')));
+        ('caleb', '75', '160','1998-02-10', (SELECT SHA1('1234'))),
+        ('cassie','60','140','1997-01-11', (SELECT SHA1('password'))),
+        ('tom','70','165','1998-10-15', (SELECT SHA1('test'))),
+        ('zachery','100','110','1980-10-10', (SELECT SHA1('4567')));
         
         
 INSERT INTO workout (date, time, duration, comments) VALUES

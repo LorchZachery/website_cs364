@@ -1,3 +1,6 @@
+<?php
+	include 'authenticate.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,11 +9,11 @@
 	</head>
 	<body onload="showExtra(0);">
 		<ul>
-			<li><a href="index.html">INTRO</a></li>
-			<li><a href="submit_data.html">Add Workout</a></li>
-			<li><a href="progress_report.html">Progress Report</a></li>
-			<li style="float:right"><a href="sign_in.php">Sign In</a></li>
-			<li style="float:right"><a href="create_account.html">Create Account</a></li>
+			<li><a href="index.php">INTRO</a></li>
+			<li><a href="submit_data.php">Add Workout</a></li>
+			<li><a href="progress_report.php">Progress Report</a></li>
+			<li style="float:right"><a href="about">About</a></li>
+			<li style="float:right"><a href="log_out.php">Log Out</a></li>
 		</ul>
 		<h1>Submit Workout</h1>
 		<form class="p-3">

@@ -1,3 +1,6 @@
+<?php
+	include'add_user.php'
+?>
 <!DOCTYPE html>
 <html>
         <head>
@@ -5,13 +8,6 @@
                 <link href="format.css" rel="stylesheet" type="text/css">
         </head>
         <body>
-                <ul>
-                        <li><a href="index.html">INTRO</a></li>
-                        <li><a href="submit_data.html">Add Workout</a></li>
-                        <li><a href="progress_report.html">Progress Report</a></li>
-			<li style="float:right"><a href="sign_in.html">Sign In</a></li>
-			<li style="float:right"><a href="create_account.php">Create Account</a></li>
-                </ul>
                 <h1>Create Account </h1>
 		<form method="post" action="">
                 	<div class="form-group">
@@ -36,5 +32,7 @@
 			</div>	
 			<input type="submit" value="Create Account" name="submit" id="submit">
 		</form>
+	<?php echo $message ?>
+	<a href="sign_in.php">Sign In</a>
 	</body>
 </html>

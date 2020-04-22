@@ -1,18 +1,44 @@
 <?php
+ 
 $message = "";
-if( isset($_POST['submit'])){
-	$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-	$password = sha1(filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-	$weight = $_POST['weight'];
-	$birthDate = $_POST['birthDate'];
-	$height = $_POST['height'];
+$connection = new mysqli("localhost","student","CompSci364", "rockclimb");
 
-	$con=mysqli_connect("localhost","student","CompSci364","rockclimb");
-	//check connection
-	if (mysqli_connect_errno()){
-		echo "Failed to connect to MySQL:" . mysqli_connect_error();
+if ($connection->connect_error) {
+	$message = "Cannot connect";
+	die("Connection failed: " . $connection->connect_error);
+}
+
+if ( isset($_POST['submit'])){
+	$query = "SELECT COUNT(1) FROM user WHERE username=?;";
+	if(!($statement = $connection->prepare($query))){
+		$row =0;
+		$message = "Prepare failed: (" . $connection->errno . ") " . $connection->error;
+    	}else{
+		$statement->bind_param('s', $_POST['username']);
+		$statement->execute();
+		$results = $statement->get_result();
+		$results = $results->fetch_array();
+		$results = intval($results[0]);
 	}
-	
-	$qz = "INSERT INTO user (username, weight, height, birthdate, password) VALUES
-		(".$username."	
+	if($results){
+		echo $results; 
+	}else{
+		$message = "";
+		$query = "INSERT INTO user (username, weight, height, birthdate, password) VALUES (?, ?, ?, ?, (SELECT SHA1(?)));";
+					
+  		if(!($statement = $connection->prepare($query))){
+	  		$message = "Prepare failed: (" . $connection->errno . ") " . $connection->error;
+  		}else{
+   
+  			$statement->bind_param('sssss', $_POST['username'], $_POST['weight'], $_POST['height'],
+                        $_POST['birthDate'], $_POST['password']);
+ 			$statement->execute();
+  	
+		}
+	header("Location: sign_in.php");	
+	}
+}
+
+
+?>
 

@@ -1,32 +1,68 @@
+<?php
+session_start(); // start (or resume) session
+
+// create database connection ($connection)
+$connection = new mysqli("localhost", "student", "CompSci364",
+	"rockclimb");
+
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
+}
+
+$error = false;
+if (! isset($_SESSION["username"]) // already authenticated
+    && isset($_POST["username"], $_POST["password"])) {
+  // query database for account information
+  $statement = $connection->prepare("SELECT password FROM user WHERE username = ?;");
+  $statement->bind_param("s", $_POST["username"]);
+
+  $statement->execute();
+  $statement->bind_result($password_hash);
+  // username present in database
+  if ($statement->fetch()) {
+    // verify that the password matches stored password hash
+    if (sha1($_POST["password"]) ==  $password_hash) {
+      // store the username to indicate authentication
+      $_SESSION["username"] = $_POST["username"];
+    }
+  }
+
+  $error = true;
+}
+
+if (isset($_SESSION["username"])) { // authenticated
+  $location = dirname($_SERVER["PHP_SELF"]);
+  if (isset($_REQUEST["redirect"])) {
+    $location = $_REQUEST["redirect"];
+  }
+
+  // redirect to requested page
+  header("Location: ".$location);
+}
+
+ ?>
 <!DOCTYPE html>
 <html>
-        <head>
-                <title>Sign In</title>
-                <link href="format.css" rel="stylesheet" type="text/css">
-	</head>
-        <body>
-                <ul>
-                        <li><a href="index.html">INTRO</a></li>
-                        <li><a href="submit_data.html">Add Workout</a></li>
-                        <li><a href="progress_report.html">Progress Report</a></li>
-                        <li style="float:right"><a href="sign_in.php">Sign In</a></li>
-                        <li style="float:right"><a href="create_account.html">Create Account</a></li>
-                </ul>
-                <h1>Login</h1>
-		<form  method="post" action="">
-		
-			<div class="form-group">
-				<label for="username">Username</label>
-				<input type="text" class="form-control" name="username" id="username" placeholder="couger" required>
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label>
-				<input type="password" class="form-control" name="password" id="password" required>
-			</div>
-		 <input type="submit" value="submit" id="submit" name="submit">
-		 <?php require 'login.php'; 
-		 echo $message; ?>
-		</form>	
-        </body>
-</html>
+  <body>
+    <?php
+      if ($error) {
+	      echo "Invalid username or password.";
+	           	      
+      }
+     ?>
+    <form action="<?php echo $_SERVER["PHP_SELF"].
+                             "?".$_SERVER["QUERY_STRING"]; ?>"
+          method="post">
+      <label for="username">Username</label>
+      <input name="username" type="text"
+             value="<?php if (isset($_POST["username"]))
+                            echo $_POST["username"]; ?>" />
+      <label for="password">Password</label>
+      <input name="password" type="password" />
 
+      <input type="submit" value="Log in" />
+    </form>
+	<a href='create_account.php'>Create Account</a>		  
+	<a href='dev.php'>Dev</a>
+</body>
+</html>

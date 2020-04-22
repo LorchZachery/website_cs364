@@ -49,7 +49,7 @@ CREATE TABLE user (
         height Double Precision NOT NULL,
         birthdate DATE NOT NULL,
         username VARCHAR(50) NOT NULL,
-
+	password VARCHAR(512) NOT NULL,
         PRIMARY KEY (user_id)
 );
 
@@ -77,11 +77,11 @@ CREATE TABLE progress_report (
 );
 
 
-INSERT INTO user (username, weight, height, birthdate) VALUES
-        ('caleb', '75', '160','1998-02-10'),
-        ('cassie','60','140','1997-01-11'),
-        ('tom','70','165','1998-10-15'),
-        ('zachery','100','110','1980-10-10');
+INSERT INTO user (username, weight, height, birthdate, password) VALUES
+        ('caleb', '75', '160','1998-02-10', (SELECT SHA('1234'))),
+        ('cassie','60','140','1997-01-11', (SELECT SHA('password'))),
+        ('tom','70','165','1998-10-15', (SELECT SHA('test'))),
+        ('zachery','100','110','1980-10-10', (SELECT SHA('4567')));
         
         
 INSERT INTO workout (date, time, duration, comments) VALUES

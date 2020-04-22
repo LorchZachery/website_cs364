@@ -14,9 +14,33 @@ $statement->execute();
 $data = array();
 $result = $statement->get_result();
 while($row = $result->fetch_assoc()){
-	echo $row['username'];
+        echo print_r($row);
+        echo "<br>";
+}
+echo "<br>";
+
+$query = "SELECT * FROM workout;";
+$statement = $connection->prepare($query);
+$statement->execute();
+
+$data = array();
+$result = $statement->get_result();
+while($row = $result->fetch_assoc()){
+        echo print_r($row);
+        echo "<br>";
+}
+echo "<br>";
+
+$query = "SELECT * FROM boulder;";
+$statement = $connection->prepare($query);
+$statement->execute();
+
+$data = array();
+$result = $statement->get_result();
+while($row = $result->fetch_assoc()){
+	echo print_r($row);
 	echo "<br>";
 }
-session_destroy();
+
 
 ?>

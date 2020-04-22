@@ -23,7 +23,10 @@ include 'authenticate.php';
     		<script src="js/fusioncharts.js"></script>
     		<script src="js/fusioncharts.charts.js"></script>
     		<script src="js/themes/fusioncharts.theme.zune.js"></script>
-   		<script src="js/speed_graphs.js"></script>	
-		
-	</body>
+		<script src="js/speed_graphs.js"></script>
+				
+		<div id="chart2">FusionChart</div>
+		<script src="js/boulder_graphs.js"></script>
+</body>
 </html>
+

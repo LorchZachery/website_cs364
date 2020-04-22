@@ -1,10 +1,10 @@
 DROP DATABASE IF EXISTS rockclimb;
-
+ 
 CREATE DATABASE rockclimb;
 USE rockclimb;
 
 CREATE TABLE workout (
-        workout_count INTEGER AUTO_INCREMENT,
+        workout_count INTEGER AUTO_INCREMENT NOT NULL,
         date DATE NOT NULL,
         time TIME NOT NULL,
         duration INTEGER NOT NULL,
@@ -36,15 +36,15 @@ CREATE TABLE boulder (
 CREATE TABLE sport (
         workout_count INTEGER,
         timeARC INTEGER,
-        gradesClimbed INTEGER NOT NULL,
-
+        arcGrade INTEGER NOT NULL,
+	highestGrade INTEGER NOT NULL,
         PRIMARY KEY (workout_count),
         FOREIGN KEY (workout_count) REFERENCES workout (workout_count)
                 ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE user (
-        user_id INTEGER AUTO_INCREMENT,
+        user_id INTEGER AUTO_INCREMENT NOT NULL,
         weight Double Precision NOT NULL,
         height Double Precision NOT NULL,
         birthdate DATE NOT NULL,
@@ -106,16 +106,16 @@ INSERT INTO boulder (workout_count,typeOfGrade, bgrade) VALUES
             FROM workout
             WHERE date = '2020-11-11' AND time = '12:10:10'), 'jugs', '5');
     
-INSERT INTO sport (workout_count, timeARC, gradesClimbed) VALUES
+INSERT INTO sport (workout_count, timeARC, arcGrade, highestGrade) VALUES
         ((SELECT workout_count
             FROM workout
-            WHERE date = '2020-10-10'), '100', '12'),
+            WHERE date = '2020-10-10'),'100', '6', '12'),
         ((SELECT workout_count 
             FROM workout
-            WHERE date = '2020-12-12'), '20', '6'),
+            WHERE date = '2020-12-12'),'57', '7', '6'),
         ((SELECT workout_count
             FROM workout
-            WHERE date = '2020-11-11' AND time = '12:11:10'), '75', '10');
+            WHERE date = '2020-11-11' AND time = '12:11:10'),'200', '8', '14');
 
 INSERT INTO speed (workout_count,speedTime, attempts) VALUES
         ((SELECT workout_count
@@ -131,7 +131,7 @@ INSERT INTO user_work (workout_count, user_id) VALUES
          ((SELECT workout_count FROM workout WHERE date = '2020-12-12' AND time = '01:01:00'), (SELECT user_id FROM user WHERE username = 'tom')),
          ((SELECT workout_count FROM workout WHERE date = '2020-10-10' AND time = '10:10:10'), (SELECT user_id FROM user WHERE username = 'zachery')),
          ((SELECT workout_count FROM workout WHERE date = '2020-09-09'), (SELECT user_id FROM user WHERE username = 'caleb')),
-        ((SELECT workout_count FROM workout WHERE date = '2021-11-11'), (SELECT user_id FROM user WHERE username = 'cassie')),
+        ((SELECT workout_count FROM workout WHERE date = '2021-11-11'), (SELECT user_id FROM user WHERE username = 'tom')),
         ((SELECT workout_count FROM workout WHERE date = '2020-01-01'), (SELECT user_id FROM user WHERE username = 'tom')),
         ((SELECT workout_count FROM workout WHERE date = '2021-02-02'), (SELECT user_id FROM user WHERE username = 'zachery'));
         
@@ -150,7 +150,7 @@ INSERT INTO progress_report (user_id, timeSpeed, timeARC, highestBgrade, highest
                         FROM boulder, user_work, (SELECT user_id FROM user WHERE username = 'caleb')n
                         WHERE user_work.workout_count = boulder.workout_count AND n.user_id = user_work.user_id
                         ),
-                        (SELECT max(gradesClimbed)
+                        (SELECT max(highestGrade)
                         FROM sport, user_work, (SELECT user_id FROM user WHERE username = 'caleb')n
                         WHERE user_work.workout_count = sport.workout_count AND n.user_id = user_work.user_id
                         )),
@@ -167,7 +167,7 @@ INSERT INTO progress_report (user_id, timeSpeed, timeARC, highestBgrade, highest
                         FROM boulder, user_work, (SELECT user_id FROM user WHERE username = 'cassie')n
                         WHERE user_work.workout_count = boulder.workout_count AND n.user_id = user_work.user_id
                         ),
-                        (SELECT max(gradesClimbed)
+                        (SELECT max(highestGrade)
                         FROM sport, user_work, (SELECT user_id FROM user WHERE username = 'cassie')n
                         WHERE user_work.workout_count = sport.workout_count AND n.user_id = user_work.user_id
                         )),
@@ -185,7 +185,7 @@ INSERT INTO progress_report (user_id, timeSpeed, timeARC, highestBgrade, highest
                         FROM boulder, user_work, (SELECT user_id FROM user WHERE username = 'tom')n
                         WHERE user_work.workout_count = boulder.workout_count AND n.user_id = user_work.user_id
                         ),
-                        (SELECT max(gradesClimbed)
+                        (SELECT max(highestGrade)
                         FROM sport, user_work, (SELECT user_id FROM user WHERE username = 'tom')n
                         WHERE user_work.workout_count = sport.workout_count AND n.user_id = user_work.user_id
                         )),
@@ -202,7 +202,7 @@ INSERT INTO progress_report (user_id, timeSpeed, timeARC, highestBgrade, highest
                         FROM boulder, user_work, (SELECT user_id FROM user WHERE username = 'zachery')n
                         WHERE user_work.workout_count = boulder.workout_count AND n.user_id = user_work.user_id
                         ),
-                        (SELECT max(gradesClimbed)
+                        (SELECT max(highestGrade)
                         FROM sport, user_work, (SELECT user_id FROM user WHERE username = 'zachery')n
                         WHERE user_work.workout_count = sport.workout_count AND n.user_id = user_work.user_id
                         ));

@@ -1,23 +1,23 @@
 $(function() {
   $.ajax({
-    url: "speed_graphs.php",
+    url:"boulder_graphs.php",
     type: "GET",
     success: function(data) {
       chartData = data;
       var chartProperties = {
-        caption: "Speed Progress",
+        caption: " Boulder Progress",
         xAxisName: "workouts",
-        yAxisName: "Time",
+        yAxisName: "grade",
         rotatevalues: "1",
         theme: "zune"
       };
       apiChart = new FusionCharts({
         type: "line",
-        renderAt: "chart-container",
+        renderAt: "chart2",
         width: "550",
         height: "350",
         dataFormat: "json",
-	dataEmptyMessage: "NO SPEED DATA",
+	dataEmptyMessage: "NO Boulder DATA",
         dataSource: {
           chart: chartProperties,
           data: chartData
@@ -27,5 +27,3 @@ $(function() {
     }
   });
 });
-
-

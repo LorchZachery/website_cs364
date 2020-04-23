@@ -16,7 +16,8 @@
 			<li><a href="report.php">Progress Report</a></li>
 			<li><a href="look_up.php">Look Up Past Workouts</a></li>
 			<li style="float:right"><a href="about">About</a></li>
-			<li style="float:right"><a href="log_out.php">Log Out</a></li>
+			<li style="float:right"><a href="user_settings.php">Account Settings</a></li>
+                        <li style="float:right"><a href="log_out.php">Log Out</a></li>
 		</ul>
 		<h1>Submit Workout</h1>
 		<form method= "post">
@@ -67,8 +68,8 @@
 		<div class="form-group" id="sportDiv">
 			<div class="row">
 				<div class="col-6">
-					<label for-"timeArc">Time ARCed</label>
-		                        <input type="text" id="timeArc" name="timeArc" placeholder="minutes" onchange="timeCheck();">
+					<label for-"timeARC">Time ARCed</label>
+		                        <input type="text" id="timeARC" name="timeARC" placeholder="minutes" onchange="timeCheck();">
 				</div>
                        		<div class="col-6">
                                         <label for="highestARCgrade">Highest Grade During ARC</label>
@@ -115,7 +116,7 @@
                 </div>
 		<div class="form-group">
 			<label for="comments">Comments/Notes</label>
-			<textarea class="form-control" id="comments" rows="1" cols="33"></textarea>
+			<textarea class="form-control" name="comments" id="comments" rows="1" cols="33"></textarea>
 		</div>
 		<input type="submit" value="Submit" name="submit" id="submit">
 		<?php echo $message; ?>	

@@ -16,6 +16,7 @@ include 'generate_report.php';
 			<li><a href="report.php">Progress Report</a></li>
 			<li><a href="look_up.php">Look Up Past Workouts</a></li>
 			<li style="float:right"><a href="about">About</a></li>
+			<li style="float:right"><a href="user_settings.php">Account Settings</a></li>
 			<li style="float:right"><a href="log_out.php">Log Out</a></li>   
                 </ul>
 		<h1>Progress Report for <?php echo $_SESSION["username"] ?></h1>
@@ -36,8 +37,8 @@ include 'generate_report.php';
 				<td>Highest Sport Route</td>
 				<td>5.<?php echo $sport ?></td>
 			</tr>
-		</table>
-	</body>
+		</table>	
+</body>
 		
 </html>
 

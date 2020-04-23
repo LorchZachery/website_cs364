@@ -63,16 +63,26 @@ function checkValue() {
 	}
 }
 
+function showTable(value) {
+	var table = document.getElementById('tableDiv');
+	if(!value){
+		table.style.display = "none";	
+	}
+	else{
+		table.style.display = "block";
 
-
-
-
-
-
-
-
-
-
-
-
+	}	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

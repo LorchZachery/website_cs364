@@ -23,10 +23,10 @@ if( isset($_POST['submit']))
 			$index = 0;
 			while($row = $results->fetch_assoc()){
 				$workout = array(
-					$row['duration'],
-					$row['comments'],
 					$row['date'],
 					$row['time'],
+					$row['duration'],
+					$row['comments'],
 				);
 				$data[$index] =$workout;
 				$index = $index + 1;

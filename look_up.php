@@ -8,7 +8,7 @@ include 'workout_find.php';
                 <title>Rock Climbing Progress Report</title>
                 <link href="format.css" rel="stylesheet" type="text/css">
         </head>
-        <body>
+        <body onchange="showTable(true);" >
                 <ul>
                         <li><a href="index.php">INTRO</a></li>
                         <li><a href="submit_data.php">Add Workout</a></li>
@@ -16,10 +16,11 @@ include 'workout_find.php';
                         <li><a href="report.php">Progress Report</a></li>
                         <li><a href="look_up.php">Look Up Past Workouts</a></li>
                         <li style="float:right"><a href="about">About</a></li>
-                        <li style="float:right"><a href="log_out.php">Log Out</a></li>
+			<li style="float:right"><a href="user_settings.php">Account Settings</a></li>
+			<li style="float:right"><a href="log_out.php">Log Out</a></li>
                 </ul>
 		<h1>Workout Look Up</h1>
-		<form method="post" action="">
+		<form method="post" action="" >
 			<div class="form-group">
 				<label for="startDate">FROM</label>
 				<input type="date" id="startDate" name="startDate">
@@ -28,27 +29,33 @@ include 'workout_find.php';
 				<label for="endDate">TO</label>
 				<input type="date" id="endDate" name="endDate">
 			</div>
-		<input type="submit" value="Find Workout" name="submit">
+		<input type="submit" id="submit" value="Find Workout" name="submit" onclick="showTable(true);">
 		</form>
+		<div class="center" id="tableDiv" >
 		<table style="width:17%">
                         <tr>
-                                <td>Date</td>
-                                <td><?php echo $date; ?></td>
-                        </tr>
-                        <tr>
-                                <td>Time Started</td>
-                                <td><?php echo $time; ?></td>
-                        </tr>
-                        <tr>
-                                <td>Duration</td>
-                                <td><?php echo $duration; ?></td>
-                        </tr>
-                        <tr>
-                                <td>Comments</td>
-                                <td><?php echo $comments ?></td>
-                        </tr>
-                </table>
-	<?php echo print_r($data); ?>	
+                                <th>Date</th>
+                                <th>Time </th>
+				<th>Duration</th>
+				<th>Comments</th>
+			</tr>	
+			<?php
+			foreach($data as $works){	
+			?>
+			<tr>
+			<?php
+				foreach($works as $work){ 
+			?>
+                                 <td><?php echo $work ?></td>
+			<?php
+				}
+			?>
+			</tr>
+			<?php } ?>
+		
+		</table>
+		</div>	
 	</body>
+	<script src="script.js"></script>
 </html>
 

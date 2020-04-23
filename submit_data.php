@@ -12,8 +12,8 @@
 		<ul>
 			<li><a href="index.php">INTRO</a></li>
 			<li><a href="submit_data.php">Add Workout</a></li>
-			<li><a href="progress_report.php">Progress Report</a></li>
-			<li><a href="dev.php"><Dev</a></li>
+			<li><a href="metrics.php">Metrics</a></li>
+			<li><a href="report.php">Progress Report</a></li>
 			<li style="float:right"><a href="about">About</a></li>
 			<li style="float:right"><a href="log_out.php">Log Out</a></li>
 		</ul>

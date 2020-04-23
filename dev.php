@@ -19,7 +19,7 @@ while($row = $result->fetch_assoc()){
 }
 echo "<br>";
 
-$query = "SELECT * FROM user_work;";
+$query = "SELECT * FROM workout;";
 $statement = $connection->prepare($query);
 $statement->execute();
 

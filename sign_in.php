@@ -43,26 +43,44 @@ if (isset($_SESSION["username"])) { // authenticated
  ?>
 <!DOCTYPE html>
 <html>
-  <body>
-    <?php
-      if ($error) {
-	      echo "Invalid username or password.";
-	           	      
-      }
-     ?>
+	<head>
+                <title>Sign In</title>
+                <link href="format.css" rel="stylesheet" type="text/css">
+        </head>
+ <body>
+<div class="bg">
+ <div id="sign_in">
+<div id="log_in">
     <form action="<?php echo $_SERVER["PHP_SELF"].
                              "?".$_SERVER["QUERY_STRING"]; ?>"
           method="post">
-      <label for="username">Username</label>
-      <input name="username" type="text"
-             value="<?php if (isset($_POST["username"]))
+ 	   <div id="username_input"> 
+ 		<label for="username">Username</label>
+      		<input name="username" type="text"
+             		value="<?php if (isset($_POST["username"]))
                             echo $_POST["username"]; ?>" />
-      <label for="password">Password</label>
-      <input name="password" type="password" />
-
+	</div>
+	<div id ="password_input">      
+		<label for="password">Password</label>
+      	<input name="password" type="password" />
+	</div>
       <input type="submit" value="Log in" />
     </form>
-	<a href='create_account.php'>Create Account</a>		  
+</div>
+	<div id="create_account">
+		<a href='create_account.php'>Create Account</a>		  
+	</div>
+	<div id="log_in_message">
+	<?php
+      if ($error) {
+              echo "Invalid username or password.";
+
+      }
+?>
+</div>
+
 	<a href='dev.php'>Dev</a>
+</div>
+</div>
 </body>
 </html>

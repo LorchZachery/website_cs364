@@ -34,4 +34,85 @@ table, th, td{
 	width: 35%;
 
 }
+#log_in{
+	display: inline-block;
+	float: right;
 
+}
+#username_input{
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  
+}
+#password_input{
+  padding: 12px 20px;
+  margin: 8px 0;
+  display:block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  }
+#create_account{
+	position: absolute;
+	right: 150px;
+	top: 140px;
+	display: block;
+}
+#sign_in{
+	right: 10px;
+	position: absolute;
+	top: 300px;
+	
+}
+#log_in_message{
+	position: absolute;
+	top: -10px;
+	right: 40px;
+}
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("images/sign_in.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.bg2 {
+  /* The image used */
+  background-image: url("images/create_acc.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.center_form {
+	margin: auto;
+	
+}
+.middle_center {
+	margin-right: 500px;
+	margin-left: 500px;
+	padding: 30px 0;
+	text-align: center;
+	border: solid 3px black;
+}

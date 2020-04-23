@@ -20,7 +20,11 @@ include('authenticate.php')
 			<li style="float:right"><a href="user_settings.php">Account Settings</a></li>
 			<li style="float:right"><a href="log_out.php">Log Out</a></li>	
 		</ul>
-		<h1>Rock Climbing Workouts 101</h1>
-		<p>This website is made so you can log your climbing workouts and see how you progress overtime. The goal is that this will motivate you to keep training and work as hard as you can to become the best climber you can be</p>
+		<h3>About</h3>
+		<p>Website Developed By Zachery Lorch and Tom McCurdy</p>
+		
+		<p>Last Update: 4/23/2020</p>
+		
+		<p>Documentation: W3schools (probably all of it), Some code in this website is copied from Dr. Coffman's CS 364 class</p>
 	</body>
 </html>

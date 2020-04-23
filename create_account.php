@@ -7,8 +7,11 @@
                 <title>Submit Data</title>
                 <link href="format.css" rel="stylesheet" type="text/css">
         </head>
-        <body>
-                <h1>Create Account </h1>
+	<body>
+	<div class="bg2">
+	<div class="middle_center" style="background-color:white;">
+		<h1>Create Account </h1>
+		<div class= "center_form">
 		<form method="post" action="">
                 	<div class="form-group">
 				<label for="username">Username </label>
@@ -34,5 +37,8 @@
 		</form>
 	<?php echo $message ?>
 	<a href="sign_in.php">Sign In</a>
+	</div>
+	</div>
+	</div>
 	</body>
 </html>

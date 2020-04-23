@@ -15,7 +15,7 @@ include 'generate_report.php';
                         <li><a href="metrics.php">Meterics</a></li>
 			<li><a href="report.php">Progress Report</a></li>
 			<li><a href="look_up.php">Look Up Past Workouts</a></li>
-			<li style="float:right"><a href="about">About</a></li>
+			<li style="float:right"><a href="about.php">About</a></li>
 			<li style="float:right"><a href="user_settings.php">Account Settings</a></li>
 			<li style="float:right"><a href="log_out.php">Log Out</a></li>   
                 </ul>

@@ -21,7 +21,7 @@ if ( isset($_POST['submit'])){
 		$results = intval($results[0]);
 	}
 	if($results){
-		echo $results; 
+		$message = "Username already taken";
 	}else{
 		$message = "";
 		$query = "INSERT INTO user (username, weight, height, birthdate, password) VALUES (?, ?, ?, ?, (SELECT SHA1(?)));";

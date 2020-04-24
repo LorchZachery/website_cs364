@@ -79,7 +79,6 @@ if (isset($_SESSION["username"])) { // authenticated
 ?>
 </div>
 
-	<a href='dev.php'>Dev</a>
 </div>
 </div>
 </body>

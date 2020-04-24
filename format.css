@@ -24,7 +24,7 @@ h1 {
 	text-align: center;
 }
 h2 {
-	text-align: center;
+	
 }
 #log_in{
 	display: inline-block;
@@ -99,12 +99,13 @@ body, html {
 
 .center_form {
 	margin: auto;
-	
+	position: relative;
 }
 .middle_center {
-	margin-right: 500px;
-	margin-left: 500px;
-	padding: 30px 0;
+	right: 655px;	
+	padding: 30px 75px;
+	top: 200px;
+	position: absolute;
 	text-align: center;
 	border: solid 3px black;
 }
@@ -136,12 +137,80 @@ color: black ;
 .boldtable table {
 	border-collapse: separate;
   	border-spacing: 0 15px;
-	width: 100%;
+	width: 50%;
 }
 .boldtable td, .boldtable th {
 	background-color: #657b8a;
 }
 .boldtable{
 	position: absolute;
-	left: 250px;
+	left: 600px;
+}
+.boldtable img{
+	height: 30%;
+	width: 30%;
+}
+
+.report {
+	position: relative;
+
+}
+
+.report th {
+	background-color: #636261;
+}
+.report tr:nth-child(even) {
+	background-color: #657b8a;
+}
+#tableDivSport{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	 
+}
+#tableDivBoulder{
+	position: absolute;
+	top: 10px;
+	left: 670px;
+}
+#tableDivSpeed{
+	position: absolute;
+	top: 10px;
+	right: -120px;
+}
+.zoom {
+	
+	transition: transform .2s;
+	padding: 10px;
+	display: table-cell;
+	width: 30%;		
+	/* The image used */
+ 
+
+  	/* Full height */
+	height: 100%;
+  	/* Center and scale the image nicely */
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: 80% 100%;
+	
+}
+.zoom:hover {
+	transform: scale(1.1);
+}
+.zoom img{
+		
+}
+.zoom a {
+	display: block;
+        
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+	
+}
+.center_div{
+	margin: auto;
+	width: 50%;
+	height: 100%;
 }

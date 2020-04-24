@@ -2,7 +2,7 @@
 include 'authenticate.php';
 include 'workout_find.php';
 $message = "'display: none'";
-if(isset($_POST['submit'])){
+if(isset($_POST['submit']) || isset($_POST['all']) ){
 	$message = "'display: block'";
 }
 ?>
@@ -35,12 +35,15 @@ if(isset($_POST['submit'])){
 				<input type="date" id="endDate" name="endDate">
 			</div>
 		<input type="submit" id="submit" value="Find Workout" name="submit">
+		<input type="submit" id="all" value="Show All Workouts" name="all">
 		</form>
-		<div class="center" id="tableDivSport"  style=<?php echo $message; ?>>
+		
+		<div class="report">
+		<div  id="tableDivSport"  style=<?php echo $message; ?>>
+		<h2>SPORT</h2>
 		<table style="width:17%">
 			<tr>
-				<th>Type</th>
-                                <th>Date</th>
+			        <th>Date</th>
                                 <th>Time </th>
 				<th>Duration</th>
 				<th>Comments</th>
@@ -55,11 +58,11 @@ if(isset($_POST['submit'])){
 			<tr>
 			<?php
 				foreach($works as $work){
-				      	
+					if($work != 'sport'){	      	
 			?>
                                  <td><?php echo $work ?></td>
 			<?php
-				       
+					}
 				}
 			?>
 			</tr>
@@ -67,17 +70,18 @@ if(isset($_POST['submit'])){
 		
 		</table>
 		</div>	
-			<div class="center" id="tableDivBoulder" style=<?php echo $message; ?>>
-                	<table style="width:17%">
+			<div  id="tableDivBoulder" style=<?php echo $message; ?>>
+			<h2>BOULDER</h2>
+			<table style="width:17%">
                         <tr>
-                                <th>Type</th>
+                                
                                 <th>Date</th>
                                 <th>Time </th>
                                 <th>Duration</th>
                                 <th>Comments</th>
                                 <th>Top Boulder Grade</th>
 				<th>Type of Climb  </th>
-				<th>_______</th>
+			
                         </tr>   
                         <?php
                         foreach($data as $works){
@@ -86,11 +90,11 @@ if(isset($_POST['submit'])){
                         <tr>
                         <?php
                                 foreach($works as $work){
-                                                                
+                        		if($work != 'boulder'){                                        
                         ?>
                                  <td><?php echo $work ?></td>
                         <?php
-                                       
+					}
                                 }
                         ?>
                         </tr>
@@ -98,17 +102,18 @@ if(isset($_POST['submit'])){
                 
                 </table>
 		</div>
-			<div class="center" id="tableDivSpeed" style=<?php echo $message; ?>>
-                        <table style="width:17%">
+			<div id="tableDivSpeed" style=<?php echo $message; ?>>
+			<h2>SPEED</h2>
+			<table style="width:17%">
                         <tr>
-                                <th>Type</th>
+                               
                                 <th>Date</th>
                                 <th>Time </th>
                                 <th>Duration</th>
                                 <th>Comments</th>
                                 <th>Fastest Time</th>
                                 <th>Attempts</th>
-                                <th>_______</th>
+                                
                         </tr> 
                         <?php
                         foreach($data as $works){
@@ -117,11 +122,11 @@ if(isset($_POST['submit'])){
                         <tr>
                         <?php
                                 foreach($works as $work){
-
+					if($work != 'speed'){
                         ?>
                                  <td><?php echo $work ?></td>
                         <?php
-
+					}
                                 }
                         ?>
                         </tr>
@@ -129,7 +134,7 @@ if(isset($_POST['submit'])){
 
                 </table>
                 </div>
-
+		
 		</div>	
 		
 	</body>

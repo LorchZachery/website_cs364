@@ -64,7 +64,7 @@ if( isset($_POST['submit']))
 							}else{
 								$statement->bind_param('sss', $workoutID, $_POST['speedTime'], $_POST['attempts']);
 								$statement->execute();
-								$message = "";
+								$message = "Success";
 			
 							}
 						}	
@@ -75,7 +75,7 @@ if( isset($_POST['submit']))
                                                         }else{
                                                                 $statement->bind_param('ssss', $workoutID, $_POST['timeARC'], $_POST['highestARCgrade'],$_POST['highestGrade']);
                                                                 $statement->execute();
-                                                                $message = "";
+                                                                $message = "Success";
 	
 							}
 						}
@@ -86,7 +86,7 @@ if( isset($_POST['submit']))
                                                         }else{
                                                                 $statement->bind_param('sss', $workoutID, $_POST['typeOfGrade'], $_POST['boulderGrade']);
                                                                 $statement->execute();
-                                                                $message = "";
+                                                                $message = "Success";
                                                         }
 	
 				

@@ -24,22 +24,22 @@ include 'generate_report.php';
 		<table>
 			<tr>
 				<td>Best Speed Time</td>
-				<td align="center"><img src="images/speed.png" width="10%" height="10%"></td>
-				<td align="center"><?php echo $speedTime; ?></td>
+				<td align="center"><img src="images/speed.png"></td>
+				<td align="center"><?php echo $speedTime; ?> s</td>
 			</tr>
 			<tr>
 				<td>Longest Time ARC</td>
-				<td align="center"><img src="images/arc.png" width="10%" height="10%"></td>
-				<td align="center"><?php echo $timeARC; ?></td>
+				<td align="center"><img src="images/arc.png" ></td>
+				<td align="center"><?php echo $timeARC; ?> minutes</td>
 			</tr>
 			<tr>
 				<td>Highest Boulder</td>
-				<td align="center"><img src="images/boulder.png" width="10%" height="10%"></td>
+				<td align="center"><img src="images/boulder.png"</td>
 				<td align="center">V<?php echo $bGrade; ?></td>
 			</tr>
 			<tr>
 				<td>Highest Sport Route</td>
-				<td align="center"><img src="images/sport.png" width="10%" height="10%"></td>
+				<td align="center"><img src="images/sport.png" ></td>
 				<td align="center" >5.<?php echo $sport ?></td>
 			</tr>
 		</table>

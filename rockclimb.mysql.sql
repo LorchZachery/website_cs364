@@ -82,9 +82,18 @@ INSERT INTO workout (date, time, duration, comments) VALUES
         ('2020-09-09', '09:00:00', '400', 'proj day'),
         ('2021-11-11', '13:01:11', '10', 'I touched the wall'),
         ('2020-01-01', '00:00:01', '100', 'start the new year off right'),
-        ('2021-02-02', '12:12:12', '8', ''),
-        ('1010-10-10', '12:12:12', '3', 'speed test');
-
+        ('2021-02-02', '12:12:12', '100', ''),
+        ('1010-10-10', '12:12:12', '200', 'speed test'),
+	('2020-04-01', '12:12:12', '60', 'speed 1'),
+	('2020-04-02', '12:12:12', '65', 'speed 2'),
+	('2020-04-03', '12:12:12', '70', 'speed 3'),
+	('2020-04-04', '12:12:12', '70', 'sport 1'),
+	('2020-04-05', '12:12:12', '75', 'sport 2'),
+	('2020-04-06', '12:12:12', '80', 'sport 3'),
+	('2020-04-07', '12:12:12', '80', 'boulder 1'),
+	('2020-04-08', '12:12:12', '85', 'boulder 2'),
+	('2020-04-09', '12:12:12', '80', 'boulder 3'),
+	('2020-04-10', '12:12:12', '95', 'boulder 4');
 
 INSERT INTO boulder (workout_count,typeOfGrade, bgrade) VALUES
         ((SELECT workout_count
@@ -95,7 +104,22 @@ INSERT INTO boulder (workout_count,typeOfGrade, bgrade) VALUES
             WHERE date = '2020-09-09'), 'dyno', '4'),
         ((SELECT workout_count
             FROM workout
-            WHERE date = '2020-11-11' AND time = '12:10:10'), 'jugs', '5');
+            WHERE date = '2020-11-11' AND time = '12:10:10'), 'jugs', '5'),
+	((SELECT workout_count
+		FROM workout
+		WHERE date = '2020-04-07'), 'crimps', '7'),
+	 ((SELECT workout_count
+                FROM workout
+                WHERE date = '2020-04-08'), 'dyno', '2'),
+	 ((SELECT workout_count
+                FROM workout
+                WHERE date = '2020-04-09'), 'crimps', '4'),
+	 ((SELECT workout_count
+                FROM workout
+                WHERE date = '2020-04-10'), 'jugs', '6');
+
+
+
 
 INSERT INTO sport (workout_count, timeARC, arcGrade, highestGrade) VALUES
         ((SELECT workout_count
@@ -106,7 +130,16 @@ INSERT INTO sport (workout_count, timeARC, arcGrade, highestGrade) VALUES
             WHERE date = '2020-12-12'),'57', '7', '6'),
         ((SELECT workout_count
             FROM workout
-            WHERE date = '2020-11-11' AND time = '12:11:10'),'200', '8', '14');
+            WHERE date = '2020-11-11' AND time = '12:11:10'),'200', '8', '14'),
+	((SELECT workout_count 
+		FROM workout
+		WHERE date = '2020-04-04'), '12','6','12'),
+	 ((SELECT workout_count
+                FROM workout
+                WHERE date = '2020-04-05'), '25','10','11'),
+	 ((SELECT workout_count
+                FROM workout
+                WHERE date = '2020-04-06'), '35','8','10');
 
 INSERT INTO speed (workout_count,speedTime, attempts) VALUES
         ((SELECT workout_count
@@ -117,7 +150,16 @@ INSERT INTO speed (workout_count,speedTime, attempts) VALUES
             WHERE date = '2021-11-11'), '10', '4'),
         ((SELECT workout_count
             FROM workout
-            WHERE date='1010-10-10'), '3','2');
+            WHERE date='1010-10-10'), '3','2'),
+	((SELECT workout_count 
+		FROM workout
+		WHERE date='2020-04-01'), '4', '4'),
+	 ((SELECT workout_count
+                FROM workout
+                WHERE date='2020-04-02'), '5', '6'),
+	 ((SELECT workout_count
+                FROM workout
+                WHERE date='2020-04-03'), '10', '3');
 
 INSERT INTO user_work (workout_count, user_id) VALUES
         ((SELECT workout_count FROM workout WHERE date = '2020-11-11' AND time = '12:10:10'), (SELECT user_id FROM user WHERE username = 'caleb')),
@@ -128,6 +170,14 @@ INSERT INTO user_work (workout_count, user_id) VALUES
         ((SELECT workout_count FROM workout WHERE date = '2021-11-11'), (SELECT user_id FROM user WHERE username = 'tom')),
         ((SELECT workout_count FROM workout WHERE date = '2020-01-01'), (SELECT user_id FROM user WHERE username = 'tom')),
         ((SELECT workout_count FROM workout WHERE date = '2021-02-02'), (SELECT user_id FROM user WHERE username = 'zachery')),
-        ((SELECT workout_count FROM workout WHERE date = '1010-10-10'), (SELECT user_id FROM user WHERE username = 'zachery'));
-        
-
+        ((SELECT workout_count FROM workout WHERE date = '1010-10-10'), (SELECT user_id FROM user WHERE username = 'zachery')),
+        ((SELECT workout_count FROM workout WHERE date = '2020-04-01'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-02'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-04'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-05'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-06'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-03'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-07'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-08'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-09'), (SELECT user_id FROM user WHERE username = 'tom')),
+	((SELECT workout_count FROM workout WHERE date = '2020-04-10'), (SELECT user_id FROM user WHERE username = 'tom'));

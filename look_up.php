@@ -1,14 +1,19 @@
 <?php
 include 'authenticate.php';
 include 'workout_find.php';
+$message = "'display: none'";
+if(isset($_POST['submit'])){
+	$message = "'display: block'";
+}
 ?>
 <!DOCTYPE html>
 <html>
         <head>
                 <title>Rock Climbing Progress Report</title>
                 <link href="format.css" rel="stylesheet" type="text/css">
-        </head>
-        <body onchange="showTable(true);" >
+		<script src="script.js"></script>
+	</head>
+        <body>
                 <ul>
                         <li><a href="index.php">INTRO</a></li>
                         <li><a href="submit_data.php">Add Workout</a></li>
@@ -29,33 +34,104 @@ include 'workout_find.php';
 				<label for="endDate">TO</label>
 				<input type="date" id="endDate" name="endDate">
 			</div>
-		<input type="submit" id="submit" value="Find Workout" name="submit" onclick="showTable(true);">
+		<input type="submit" id="submit" value="Find Workout" name="submit">
 		</form>
-		<div class="center" id="tableDiv" >
+		<div class="center" id="tableDivSport"  style=<?php echo $message; ?>>
 		<table style="width:17%">
-                        <tr>
+			<tr>
+				<th>Type</th>
                                 <th>Date</th>
                                 <th>Time </th>
 				<th>Duration</th>
 				<th>Comments</th>
+				<th>Time ARCed</th>
+				<th>Highest Grade in ARC</th>
+				<th>Highest Grade of the Day</th>
 			</tr>	
 			<?php
 			foreach($data as $works){	
+				if($works[0] == 'sport'){
 			?>
 			<tr>
 			<?php
-				foreach($works as $work){ 
+				foreach($works as $work){
+				      	
 			?>
                                  <td><?php echo $work ?></td>
 			<?php
+				       
 				}
 			?>
 			</tr>
-			<?php } ?>
+			<?php } }?>
 		
 		</table>
 		</div>	
+			<div class="center" id="tableDivBoulder" style=<?php echo $message; ?>>
+                	<table style="width:17%">
+                        <tr>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Time </th>
+                                <th>Duration</th>
+                                <th>Comments</th>
+                                <th>Top Boulder Grade</th>
+				<th>Type of Climb  </th>
+				<th>_______</th>
+                        </tr>   
+                        <?php
+                        foreach($data as $works){
+                                if($works[0] == 'boulder'){
+                        ?>
+                        <tr>
+                        <?php
+                                foreach($works as $work){
+                                                                
+                        ?>
+                                 <td><?php echo $work ?></td>
+                        <?php
+                                       
+                                }
+                        ?>
+                        </tr>
+                        <?php } }?>
+                
+                </table>
+		</div>
+			<div class="center" id="tableDivSpeed" style=<?php echo $message; ?>>
+                        <table style="width:17%">
+                        <tr>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Time </th>
+                                <th>Duration</th>
+                                <th>Comments</th>
+                                <th>Fastest Time</th>
+                                <th>Attempts</th>
+                                <th>_______</th>
+                        </tr> 
+                        <?php
+                        foreach($data as $works){
+                                if($works[0] == 'speed'){
+                        ?>
+                        <tr>
+                        <?php
+                                foreach($works as $work){
+
+                        ?>
+                                 <td><?php echo $work ?></td>
+                        <?php
+
+                                }
+                        ?>
+                        </tr>
+                        <?php } }?>
+
+                </table>
+                </div>
+
+		</div>	
+		
 	</body>
-	<script src="script.js"></script>
 </html>
 

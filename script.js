@@ -62,16 +62,24 @@ function checkValue() {
 		alert("Must select disipline");
 	}
 }
-
+ 
 function showTable(value) {
-	var table = document.getElementById('tableDiv');
+	var sport = document.getElementById('tableDivSport');
+	var boulder = document.getElementById('tableDivBoulder');
+	var speed = document.getElementById('tableDivSpeed');
 	if(!value){
-		table.style.display = "none";	
+		sport.style.display = "none";
+		boulder.style.display = "none";
+		speed.style.display = "none";
+		
 	}
 	else{
-		table.style.display = "block";
-
-	}	
+		
+		sport.style.display = "block";
+		boulder.style.display = "block";
+		speed.style.display = "block";
+	
+	}
 }
 
 

@@ -15,7 +15,7 @@ CREATE TABLE workout (
 
 CREATE TABLE speed (
         workout_count INTEGER,
-        speedTime INTEGER ,
+        speedTime DECIMAL(4,2), 
         attempts INTEGER ,
 
         PRIMARY KEY (workout_count),

@@ -20,24 +20,30 @@ include 'generate_report.php';
 			<li style="float:right"><a href="log_out.php">Log Out</a></li>   
                 </ul>
 		<h1>Progress Report for <?php echo $_SESSION["username"] ?></h1>
-		<table style="width:17%">
+		<div class="boldtable" id="progress_report">
+		<table>
 			<tr>
 				<td>Best Speed Time</td>
-				<td><?php echo $speedTime; ?></td>
+				<td align="center"><img src="images/speed.png" width="10%" height="10%"></td>
+				<td align="center"><?php echo $speedTime; ?></td>
 			</tr>
 			<tr>
 				<td>Longest Time ARC</td>
-				<td><?php echo $timeARC; ?></td>
+				<td align="center"><img src="images/arc.png" width="10%" height="10%"></td>
+				<td align="center"><?php echo $timeARC; ?></td>
 			</tr>
 			<tr>
 				<td>Highest Boulder</td>
-				<td>V<?php echo $bGrade; ?></td>
+				<td align="center"><img src="images/boulder.png" width="10%" height="10%"></td>
+				<td align="center">V<?php echo $bGrade; ?></td>
 			</tr>
 			<tr>
 				<td>Highest Sport Route</td>
-				<td>5.<?php echo $sport ?></td>
+				<td align="center"><img src="images/sport.png" width="10%" height="10%"></td>
+				<td align="center" >5.<?php echo $sport ?></td>
 			</tr>
-		</table>	
+		</table>
+		</div>	
 </body>
 		
 </html>

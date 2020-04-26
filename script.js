@@ -47,10 +47,10 @@ function timeCheck() {
 
 	var time = document.getElementById('speedTime').value; 
 	var speed = document.getElementById('duration').value;
-	if(time < 00 || isNaN(time) ||  time > 500){
+	if(time < 00 || isNaN(time) ){
 		alert("Time needs to be number with seconds and Miliseconds");
 	}
-	if(speed < 0 || isNaN(speed) || speed > 300){
+	if(speed < 0 || isNaN(speed)){
 		alert("Time needs to be in Minutes and Greater than 0");
 	}
 }

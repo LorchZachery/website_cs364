@@ -29,7 +29,10 @@ include 'update_user.php';
 			<div class="form-group">
 				<label for="newpass">New Password</label>
 				<input type="password" class="form-control" name="newpass" id="newpass" required>
-			</div>	
+			</div>
+			<div class="form-group">
+				<label for="confpass">Confirm Password</label>
+				<input type="password" class="form-control" name="confpass" id="confpass" required>	
 			<input type="submit" value="Update Account" name="update_password" id="update_password">
 		</form>
 	<?php echo $message1 ?>

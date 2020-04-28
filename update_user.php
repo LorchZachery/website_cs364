@@ -9,6 +9,9 @@ if($connection->connect_error){
         die("Connection Fail: " . $connection->connect_error);
 }
 	if(isset($_POST['update_password'])){
+		if($_POST['newpass'] != $_POST['confpass']){
+			$message1 = "passwords do not match";
+		}else{
 		$query =  "SELECT user.password FROM user  WHERE username = ?;";
                         if(!($statement = $connection->prepare($query))){
                                 $message1 = "Prepare failed: (" . $connection->errno . ") " . $connection->error;
@@ -43,7 +46,7 @@ if($connection->connect_error){
                         }
 	
 	}
-
+	}
 	if(isset($_POST['update_metrics'])){
                 $query =  "UPDATE user SET height=?, weight=? WHERE username = ?;";
                 if(!($statement = $connection->prepare($query))){

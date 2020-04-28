@@ -32,7 +32,10 @@
 			<div class="form-group">
 				<label for="password">Password</label>
 				<input type="password" class="form-control" name="password" id="password" required>
-			</div>	
+			</div>
+			<div class="form-group">
+				<label for="confpass">Confirm Password</label>
+				<input type="password" class="form-control" name="confpass" id="confpass" required>	
 			<input type="submit" value="Create Account" name="submit" id="submit">
 		</form>
 	<?php echo $message ?>

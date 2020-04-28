@@ -9,6 +9,11 @@ if ($connection->connect_error) {
 }
 
 if ( isset($_POST['submit'])){
+	if($_POST['password'] != $_POST['confpass']){
+		$message = "Passwords do not match";
+	}else{
+	
+	
 	$query = "SELECT COUNT(1) FROM user WHERE username=?;";
 	if(!($statement = $connection->prepare($query))){
 		$row =0;
@@ -38,7 +43,7 @@ if ( isset($_POST['submit'])){
 	header("Location: sign_in.php");	
 	}
 }
-
+}
 
 ?>
 

@@ -21,20 +21,20 @@ include 'authenticate.php';
                 </ul>
 		<h1>Metrics for <?php echo $_SESSION["username"] ?></h1>
 		
-		<div id="chart-container" class="left">FusionCharts will render here</div>
+		<div id="chart-container" class="table_form">FusionCharts will render here</div>
     		<script src="js/jquery-2.1.4.js"></script>
     		<script src="js/fusioncharts.js"></script>
     		<script src="js/fusioncharts.charts.js"></script>
     		<script src="js/themes/fusioncharts.theme.zune.js"></script>
 		<script src="js/speed_graphs.js"></script>
 				
-		<div id="chart2" class="center">FusionChart</div>
+		<div id="chart2" class="table_form">FusionChart</div>
 		<script src="js/boulder_graphs.js"></script>
 		
-		<div id="chart3" class="right">Fusionchar</div>
+		<div id="chart3" class="table_form">Fusionchar</div>
 		<script src="js/sport_graphs.js"></script>
 		
-		<div id="chart4" class="middle">FusionChart</div>
+		<div id="chart4" class="table_form">FusionChart</div>
 		<script src="js/duration_graphs.js"></script>
 </body>
 </html>

@@ -36,6 +36,7 @@ include('authenticate.php')
 		<h1>Rock Climbing Workouts 101</h1>	
 	<p style="text-align: center">This website is made so you can log your climbing workouts and see how you progress overtime.
 <br> The goal is that this will motivate you to keep training and work as hard as you can to become the best climber you can be</p>
+	
 	<div class="center_div">	
 	<div class="zoom" style="background-image:url('images/dumbbell-solid.svg');" ><a href="submit_data.php"></a>
 	</div>

@@ -197,13 +197,13 @@ color: black ;
 	
 }
 .center_div{
-	margin: auto;
-	width: 50%;
-	height: 100%;
+	position: absolute; 	
+	left: 35%;
+	width: 100%;
+	
 }
 .center_slide{
         margin: auto;
-        width: 50%;
-        
+        width: 100%;
 }
 

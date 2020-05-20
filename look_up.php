@@ -8,6 +8,28 @@ if(isset($_POST['submit']) || isset($_POST['all']) ){
 ?>
 <!DOCTYPE html>
 <html>
+<style>
+body {
+
+	background-image: url('images/lookUp.jpg');
+	/* Full height */
+  	height: 100%;
+
+  	/* Center and scale the image nicely */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+  	background-size: cover;
+
+}
+
+div, h1 {
+
+	color: white;
+
+}
+
+</style>
         <head>
                 <title>Rock Climbing Progress Report</title>
                 <link href="format.css" rel="stylesheet" type="text/css">

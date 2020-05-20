@@ -5,6 +5,27 @@ include('authenticate.php')
  ?>
 <!DOCTYPE html>
 <html>
+<style>
+body {
+
+	background-image: url('images/about.jpg');
+	/* Full height */
+  	height: 100%;
+
+  	/* Center and scale the image nicely */
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: cover;
+
+}
+
+div, h3, p {
+
+	color: white;
+
+}
+
+</style>
 	<head>
 		<title>Rock Climbing Workouts</title>
 		<link href="format.css" rel="stylesheet" type="text/css">

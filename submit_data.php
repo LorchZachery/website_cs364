@@ -4,11 +4,33 @@
 ?>
 <!DOCTYPE html>
 <html>
+<style>
+body {
+
+	background-image: url('images/submitData.jpg');
+	/* Full height */
+  	height: 100%;
+
+  	/* Center and scale the image nicely */
+	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: cover;
+
+}
+
+div, h1 {
+
+	color: white;
+
+}
+
+</style>
 	<head>
 		<title>Submit Data</title>
 		<link href="format.css" rel="stylesheet" type="text/css">
 	</head>
 	<body onload="showExtra(0);">
+	
 		<ul>
 			<li><a href="index.php">INTRO</a></li>
 			<li><a href="submit_data.php">Add Workout</a></li>
@@ -131,6 +153,7 @@
 		<input type="submit" value="Submit" name="submit" id="submit">
 		<?php echo $message; ?>	
 	</form>
+	
 	</body>
        	<script src="script.js"></script>
 

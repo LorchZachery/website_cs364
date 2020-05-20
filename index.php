@@ -16,7 +16,7 @@ include('authenticate.php')
 	</head>
 	<body>
 		<ul style="background-color: #ba9070;">
-			<li><a href="index.php">INTRO</a></li>
+			<li><a href="index.php">Home</a></li>
 			<li><a href="submit_data.php">Add Workout</a></li>
 			<li><a href="metrics.php">Metrics</a></li>
 			<li><a href="report.php">Progress Report</a></li>

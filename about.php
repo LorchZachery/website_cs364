@@ -32,7 +32,7 @@ div, h3, p {
 	</head>
 	<body>
 		<ul style="background-color: #ba9070;">
-			<li><a href="index.php">INTRO</a></li>
+			<li><a href="index.php">Home</a></li>
 			<li><a href="submit_data.php">Add Workout</a></li>
 			<li><a href="metrics.php">Metrics</a></li>
 			<li><a href="report.php">Progress Report</a></li>
@@ -44,7 +44,7 @@ div, h3, p {
 		<h3>About</h3>
 		<p>Website Developed By Zachery Lorch and Tom McCurdy</p>
 		
-		<p>Last Update: 4/23/2020</p>
+		<p>Last Update: 5/20/2020</p>
 		
 		<p>Documentation: W3schools (probably all of it), Some code in this website is copied from Dr. Coffman's CS 364 class</p>
 	</body>
